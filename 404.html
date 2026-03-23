@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 | Amplios</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: #0b0b0f;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 680px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(123, 44, 255, 0.25);
+      border-radius: 24px;
+      padding: 48px 32px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(123, 44, 255, 0.15);
+      backdrop-filter: blur(10px);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(123, 44, 255, 0.12);
+      border: 1px solid rgba(123, 44, 255, 0.35);
+      color: #b995ff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      font-size: 88px;
+      line-height: 1;
+      color: #7B2CFF;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 520px;
+      margin: 0 auto 26px;
+    }
+
+    .counter {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 26px;
+      color: #ffffff;
+    }
+
+    .counter span {
+      color: #7B2CFF;
+      font-size: 28px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #7B2CFF;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(123, 44, 255, 0.28);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(123, 44, 255, 0.4);
+      color: #c5a8ff;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 36px 22px;
+      }
+
+      h1 {
+        font-size: 64px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="badge">AMPLIOS</div>
+      <h1>404</h1>
+      <h2>Page not found</h2>
+      <p>
+        The page you tried to access does not exist or has been moved.
+        You will be automatically redirected to the homepage.
+      </p>
+
+      <div class="counter">
+        Redirecting in <span id="count">5</span>s
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="/">Go back home</a>
+        <a class="btn btn-secondary" href="javascript:history.back()">Previous page</a>
+      </div>
+  <script>
+    let timeLeft = 5;
+    const countEl = document.getElementById('count');
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countEl.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        window.location.href = '/';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

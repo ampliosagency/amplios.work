@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7b2cff; /* Unified Brand Purple */
+  --color-secondary: #7b2cff; 
+  --color-accent: #7b2cff;
+  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Sora", monospace;
+  --font-display: "Sora", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#020202] text-white font-sans antialiased overflow-x-hidden;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.glass {
+  @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10;
+}
+
+.glass-dark {
+  @apply bg-black/40 backdrop-blur-3xl border border-white/5;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-white/30;
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px rgba(123, 44, 255, 0.2);
+}
+
+.neon-border {
+  @apply border border-primary/30 hover:border-primary transition-colors duration-500;
+}
+
+.grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
