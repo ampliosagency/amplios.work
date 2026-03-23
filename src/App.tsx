@@ -66,48 +66,60 @@ const services = [
 const processSteps = [
   {
     number: '01',
-    title: 'Discovery & Diagnosis',
+    title: 'Initial Briefing',
     description:
-      'We understand your business, offer, stage, and competitors to identify what is truly slowing down or accelerating conversion.',
+      'We gather your company information, goals, services, references, and everything needed to plan the project properly.',
   },
   {
     number: '02',
-    title: 'Strategy & Structure',
+    title: 'Production Starts',
     description:
-      'We design the page or site architecture with a focus on positioning, customer journey, copy, and business goals.',
+      'Our developers start building your website with the approved structure, visual direction, and content strategy.',
   },
   {
     number: '03',
-    title: 'Design & Development',
+    title: 'Review & Validation',
     description:
-      'We turn strategy into a modern, fast, responsive digital experience built to perform.',
+      'The website is finished and you review all pages, sections, and information to confirm everything is correct.',
   },
   {
     number: '04',
-    title: 'Launch & Optimization',
+    title: 'Payment',
     description:
-      'We launch, monitor performance, and refine critical points to improve results consistently.',
+      'After your approval, you complete the payment with confidence and full visibility of the final project.',
+  },
+  {
+    number: '05',
+    title: 'Website Goes Live',
+    description:
+      'Once payment is completed, we publish the website and make it live for your audience and customers.',
   },
 ];
 
 const caseStudies = [
   {
-    title: 'ALTPLAS',
-    category: 'Landing Page',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800',
-    result: '+145% conversion rate',
+    title: 'Insurance Brokers',
+    description: 'Lead-focused landing pages and quote funnels that increase policy requests and booked calls.',
   },
   {
-    title: 'SFP',
-    category: 'Website & Performance',
-    image: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800',
-    result: '8.4x ROAS',
+    title: 'Medical Clinics',
+    description: 'High-trust websites that improve appointment conversion and present services with clarity.',
   },
   {
-    title: 'VERSATILSEG',
-    category: 'Digital Repositioning',
-    image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&q=80&w=800',
-    result: '+62% qualified leads',
+    title: 'Veterinarians',
+    description: 'Conversion-ready pages for pet care services, emergency bookings, and recurring consultations.',
+  },
+  {
+    title: 'Schools',
+    description: 'Enrollment-oriented digital experiences that highlight programs, structure, and credibility.',
+  },
+  {
+    title: 'Electricians',
+    description: 'Fast local pages built to capture urgent service requests and qualified WhatsApp leads.',
+  },
+  {
+    title: 'Auto Repair Shops',
+    description: 'Practical service websites that turn searches into inspections, diagnostics, and bookings.',
   },
 ];
 
@@ -137,15 +149,27 @@ const faqs = [
 const testimonials = [
   {
     quote:
-      'Amplios elevated our positioning with a landing page that felt much clearer, more modern, and far more campaign-ready.',
-    author: 'Bruna',
-    role: 'Co-CEO, SFP',
+      'Amplios gave us a sharper online presence and a site structure that finally supports our sales process.',
+    author: 'John',
+    role: 'Founder, Northline Insurance',
   },
   {
     quote:
-      'The new website increased our perceived value and gave our commercial operation much stronger support.',
-    author: 'Ricardo',
-    role: 'CEO, VersatilSeg',
+      'Our new pages look premium, load fast, and generate better quality leads from day one.',
+    author: 'Emily',
+    role: 'Director, BrightCare Clinic',
+  },
+  {
+    quote:
+      'The project made our service communication much clearer and improved appointment requests consistently.',
+    author: 'Michael',
+    role: 'Owner, GreenPaws Vet',
+  },
+  {
+    quote:
+      'Amplios delivered a practical website that helps us close more local service calls every week.',
+    author: 'David',
+    role: 'Manager, VoltFix Electrical',
   },
 ];
 
@@ -154,6 +178,24 @@ const stats = [
   { label: 'Pages', value: '300+' },
   { label: 'ROAS', value: '8.4x' },
   { label: 'Leads', value: '+500k' },
+];
+
+const pricingPlans = [
+  {
+    name: '',
+    price: 'USD 680',
+    subtitle: 'A complete website package for businesses that need authority, speed, and conversion.',
+    features: [
+      'Custom website development',
+      'Modern UI/UX design',
+      'Full website setup and launch',
+      'On-page SEO optimization',
+      'Security setup and hardening',
+      'SSL and performance configuration',
+      'Hosting included for 1 year',
+      '30 days of free maintenance',
+    ],
+  },
 ];
 
 const AccordionItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
@@ -325,7 +367,7 @@ export default function App() {
               <span className="text-primary">perform.</span>
             </h1>
             <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/40 mb-12 font-light leading-relaxed tracking-tight">
-              <span className="text-white">amplios.ag / amplios.work</span> is a marketing agency focused on building
+              <span className="text-white">Amplios</span> is a marketing agency focused on building
               landing pages and modern websites that are fast, strategic, and designed to help brands sell better online.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
@@ -474,23 +516,46 @@ export default function App() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative"
-              >
-                <div className="text-[80px] font-bold text-white/[0.02] absolute -top-12 -left-4 leading-none select-none">{step.number}</div>
-                <div className="pt-8 border-t border-white/10 group hover:border-primary transition-colors">
-                  <h3 className="text-xl font-bold mb-6 uppercase tracking-tighter group-hover:text-primary transition-colors">{step.title}</h3>
+          <div className="relative">
+            <div className="hidden lg:block absolute left-0 right-0 top-9 h-[1px] bg-white/10" />
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+              {processSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="relative bg-[#020202] border border-white/10 rounded-2xl p-6 group hover:border-primary/40 transition-colors min-h-[260px]"
+                >
+                  <div className="mb-6 flex items-center justify-between">
+                    <div className="w-8 h-8 rounded-full border border-primary/40 bg-primary/10 text-primary text-xs font-mono flex items-center justify-center">
+                      {step.number}
+                    </div>
+                    <div className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/30">Step {step.number}</div>
+                  </div>
+                  <h3 className="text-base font-bold mb-4 uppercase tracking-tight group-hover:text-primary transition-colors">{step.title}</h3>
                   <p className="text-white/40 text-sm leading-relaxed font-light">{step.description}</p>
-                </div>
-              </motion.div>
-            ))}
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:flex absolute -right-3 top-8 w-6 h-6 rounded-full border border-white/10 bg-[#020202] items-center justify-center text-white/40 z-10">
+                      <ChevronRight size={14} />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-10 border border-primary/30 bg-primary/10 rounded-2xl px-6 py-6 text-center">
+            <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3">
+              Risk-free delivery model
+            </h3>
+            <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-3xl mx-auto mb-4">
+              We work with a transparent process: you follow each stage, review the final website in detail, and only move to payment
+              after approval. This keeps the project secure, predictable, and aligned with your expectations.
+            </p>
+            <p className="text-sm md:text-base text-white/85 font-medium">
+              Yes, you only make the payment after the website is ready and approved by you.
+            </p>
           </div>
         </div>
       </section>
@@ -501,38 +566,33 @@ export default function App() {
             <div>
               <div className="text-primary font-mono text-xs mb-6 tracking-[0.4em] uppercase">04 // Work</div>
               <h2 className="text-5xl md:text-8xl font-bold tracking-tighter uppercase leading-none">
-                Featured <span className="text-primary">projects.</span>
+                Industries <span className="text-primary">we serve.</span>
               </h2>
             </div>
-            <button className="text-primary font-bold text-[10px] uppercase tracking-[0.4em] flex items-center gap-3 hover:gap-5 transition-all">
-              VIEW PORTFOLIO <ArrowUpRight size={18} />
-            </button>
+            <p className="text-white/30 text-lg font-light max-w-md text-right">
+              We have delivered high-performance digital projects across multiple business segments and service markets.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <motion.div key={index} className="group relative aspect-[3/4] overflow-hidden bg-black rounded-3xl border border-white/5">
-                <img
-                  src={study.image}
-                  alt={study.title}
-                  className="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700 grayscale group-hover:grayscale-0"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 p-10 flex flex-col justify-between">
-                  <div className="flex justify-between items-start">
-                    <div className="text-[10px] font-mono text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 border border-primary/20 rounded-lg">
-                      {study.category}
-                    </div>
-                    <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ArrowUpRight size={20} />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-white mb-4 uppercase tracking-tighter">{study.title}</div>
-                    <div className="h-[1px] w-0 group-hover:w-full bg-primary transition-all duration-500 mb-4" />
-                    <div className="text-primary font-mono text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
-                      {study.result}
-                    </div>
+              <motion.div
+                key={index}
+                className="bg-[#020202] p-12 group relative overflow-hidden rounded-3xl border border-white/5 hover:border-primary/20 transition-colors"
+              >
+                <div className="w-12 h-12 border border-white/10 rounded-xl flex items-center justify-center mb-10 group-hover:border-primary group-hover:bg-primary/5 transition-all">
+                  <Layers3 className="w-5 h-5 text-white/50 group-hover:text-primary transition-colors" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-6 tracking-tighter uppercase group-hover:text-primary transition-colors">
+                    {study.title}
+                  </h3>
+                  <p className="text-white/40 text-sm leading-relaxed font-light">
+                    {study.description}
+                  </p>
+                  <div className="mt-10 h-[1px] w-full bg-white/10 group-hover:bg-primary/40 transition-colors" />
+                  <div className="mt-6 text-[10px] font-bold uppercase tracking-[0.3em] text-white/20 group-hover:text-white transition-colors">
+                    Proven delivery
                   </div>
                 </div>
               </motion.div>
@@ -543,6 +603,12 @@ export default function App() {
 
       <section className="py-40 relative">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <div className="text-primary font-mono text-xs mb-6 tracking-[0.4em] uppercase">05 // Testimonials</div>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase leading-none">
+              Client <span className="text-primary">testimonials.</span>
+            </h2>
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((t, index) => (
               <div key={index} className="bg-[#020202] p-16 relative overflow-hidden group rounded-3xl border border-white/5">
@@ -558,6 +624,50 @@ export default function App() {
                   </div>
                 </div>
                 <p className="text-2xl font-light leading-relaxed text-white/70 relative z-10">"{t.quote}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-40 bg-white/[0.01] relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <div className="text-primary font-mono text-xs mb-6 tracking-[0.4em] uppercase">06 // Pricing</div>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase leading-none">
+              Simple <span className="text-primary">pricing.</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-1 max-w-4xl mx-auto">
+            {pricingPlans.map((plan, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden rounded-3xl border border-primary/40 p-12 md:p-16 lg:p-20 bg-gradient-to-br from-primary/20 via-primary/10 to-[#020202] shadow-[0_0_60px_rgba(123,44,255,0.18)]"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+                <div className="mx-auto mb-5 flex w-fit items-center justify-center text-center px-4 py-2 rounded-full border border-primary/40 bg-primary/15 text-primary text-[10px] font-bold uppercase tracking-[0.3em]">
+                  Premium quality website
+                </div>
+                <div className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-white/70 mb-4 text-center">{plan.name}</div>
+                <div className="text-5xl md:text-6xl font-bold tracking-tighter mb-5 text-center">{plan.price}</div>
+                <p className="text-primary text-sm md:text-base font-semibold text-center mb-6 uppercase tracking-[0.2em]">
+                  One-time payment
+                </p>
+                <p className="text-white/80 text-base md:text-lg leading-relaxed mb-10 text-center max-w-2xl mx-auto">{plan.subtitle}</p>
+                <div className="space-y-4 mb-12 max-w-xl mx-auto">
+                  {plan.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center justify-center gap-3 text-base text-white/90 text-center">
+                      <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_12px_rgba(123,44,255,0.8)]" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href="mailto:connect@amplios.work"
+                  className="mx-auto flex w-fit items-center gap-3 px-10 py-4 rounded-2xl bg-primary text-black text-xs font-bold uppercase tracking-[0.25em] hover:shadow-[0_0_35px_rgba(123,44,255,0.45)] transition-all"
+                >
+                  Start this project <ArrowUpRight size={14} />
+                </a>
               </div>
             ))}
           </div>
